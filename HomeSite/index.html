@@ -84,7 +84,7 @@ description: "Dean Abraham's personal site — hobbies, projects, and everyday l
     </div>
 
     <div class="article-list">
-      {% assign sorted_articles = site.articles | sort: 'order' %}
+      {% assign sorted_articles = site.articles | default: empty | sort: 'order' %}
       {% for article in sorted_articles %}
       <a href="{{ article.url | relative_url }}" class="article-card">
         <div class="article-card-body">
