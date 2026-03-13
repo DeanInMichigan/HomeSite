@@ -55,7 +55,7 @@ description: "Dean Abraham's personal site — hobbies, projects, and everyday l
       <div class="about-card">
         <h3>Topics</h3>
         <ul>
-          <li>Lorem Ipsum</li>
+          <li>Cooking</li>
           <li>Dolor Sit Amet</li>
           <li>Consectetur Adipiscing</li>
           <li>Sed Do Eiusmod</li>
@@ -85,9 +85,9 @@ description: "Dean Abraham's personal site — hobbies, projects, and everyday l
 
     <div class="article-list">
       {% if site.articles %}
-        {% assign sorted_articles = site.articles | sort: 'order' %}
+      {% assign sorted_articles = site.articles | sort: 'order' %}
       {% else %}
-        {% assign sorted_articles = "" | split: "," %}
+      {% assign sorted_articles = "" | split: "," %}
       {% endif %}
       {% for article in sorted_articles %}
       <a href="{{ article.url | relative_url }}" class="article-card">
