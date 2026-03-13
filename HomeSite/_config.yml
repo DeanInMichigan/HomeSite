@@ -1,0 +1,21 @@
+title: Dean Abraham — Personal Site
+description: Dean Abraham's personal site — hobbies, projects, and everyday life.
+url: "https://deaninmichigan.github.io"
+baseurl: "/HomeSite"
+
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: articles
+    values:
+      layout: article
+
+exclude:
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock

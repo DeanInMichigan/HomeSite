@@ -1,0 +1,98 @@
+---
+layout: default
+title: "Dean Abraham — Personal Site"
+description: "Dean Abraham's personal site — hobbies, projects, and everyday life."
+---
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-tag">Personal &amp; Home</div>
+        <h1>Hi, I'm <span class="hero-name-text">Dean Abraham</span></h1>
+        <pre class="ascii-name" aria-label="Dean Abraham">
+ ____  _____    _    _   _       _    ____  ____      _    _   _    _    __  __
+|  _ \| ____|  / \  | \ | |     / \  | __ )|  _ \    / \  | | | |  / \  |  \/  |
+| | | |  _|   / _ \ |  \| |    / _ \ |  _ \| |_) |  / _ \ | |_| | / _ \ | |\/| |
+| |_| | |___ / ___ \| |\  |   / ___ \| |_) |  _ <  / ___ \|  _  |/ ___ \| |  | |
+|____/|_____/_/   \_\_| \_|  /_/   \_\____/|_| \_\/_/   \_\_| |_/_/   \_\_|  |_|</pre>
+        <p class="tagline">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae
+          vestibulum commodo. Donec in efficitur leo, in commodo orci.
+        </p>
+        <div class="hero-links">
+          <a href="#articles" class="btn btn-primary">Read Articles</a>
+          <a href="https://github.com/DeanInMichigan" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.604-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            GitHub Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Background &amp; Interests</h2>
+    <p class="about-bio">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt
+      ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <p class="about-bio" style="margin-top: 16px;">
+      Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+      nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+      deserunt mollit anim id est laborum.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>Topics</h3>
+        <ul>
+          <li>Lorem Ipsum</li>
+          <li>Dolor Sit Amet</li>
+          <li>Consectetur Adipiscing</li>
+          <li>Sed Do Eiusmod</li>
+        </ul>
+      </div>
+      <div class="about-card">
+        <h3>Personal Interests</h3>
+        <ul>
+          <li>Boating, ATV'ing &amp; Snowmobiling</li>
+          <li>Astronomy &amp; Astrophotography</li>
+          <li>Science Fiction</li>
+          <li>Cooking</li>
+          <li>Travel</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Articles -->
+<section class="articles" id="articles">
+  <div class="container">
+    <div class="articles-header">
+      <div class="section-label">Articles</div>
+      <h2 class="section-title">Writing &amp; Guides</h2>
+    </div>
+
+    <div class="article-list">
+      {% assign sorted_articles = site.articles | sort: 'order' %}
+      {% for article in sorted_articles %}
+      <a href="{{ article.url | relative_url }}" class="article-card">
+        <div class="article-card-body">
+          <div class="article-tag">{{ article.tag }}</div>
+          <h3>{{ article.title }}</h3>
+          <p>{{ article.description }}</p>
+        </div>
+        <span class="article-arrow">→</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>

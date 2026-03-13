@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <link rel="stylesheet" id="theme-stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  <script>
+    (function () {
+      var cssMap = { lcars: 'lcars.css', terminal: 'terminal.css' };
+      var base = document.querySelector('link#theme-stylesheet').href.replace(/style\.css$/, '');
+      var theme = document.cookie.split('; ').reduce(function (acc, pair) {
+        var parts = pair.split('=');
+        return parts[0] === 'theme' ? parts[1] : acc;
+      }, 'default');
+      if (cssMap[theme]) {
+        document.getElementById('theme-stylesheet').href = base + cssMap[theme];
+      }
+    })();
+  </script>
+</head>
+
+<body>
+
+  <nav>
+    <div class="inner">
+      <a href="{{ '/' | relative_url }}" class="nav-brand">deaninmichigan<span>.</span>HomeSite</a>
+      <div class="nav-links">
+        <a href="{{ '/#about' | relative_url }}">About</a>
+        <a href="{{ '/#articles' | relative_url }}">Articles</a>
+        <a href="https://github.com/DeanInMichigan" target="_blank" rel="noopener">GitHub</a>
+        <button id="theme-label" onclick="openThemeDialog()" aria-haspopup="dialog">Theme</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Theme dialog -->
+  <dialog id="theme-dialog" aria-modal="true" aria-label="Select theme">
+    <h2>Select Theme</h2>
+    <ul>
+      <li><button data-theme="default" onclick="pickTheme('default')">Default</button></li>
+      <li><button data-theme="lcars"   onclick="pickTheme('lcars')">LCARS</button></li>
+      <li><button data-theme="terminal" onclick="pickTheme('terminal')">Terminal</button></li>
+    </ul>
+    <button class="dialog-close" onclick="closeThemeDialog()" aria-label="Close">✕</button>
+  </dialog>
+  <div id="theme-backdrop" onclick="closeThemeDialog()"></div>
+
+  {{ content }}
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Dean Abraham &nbsp;·&nbsp; <a href="https://github.com/DeanInMichigan/HomeSite" target="_blank"
+          rel="noopener">Source on GitHub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    var cssMap = { lcars: 'lcars.css', terminal: 'terminal.css' };
+
+    function getTheme() {
+      return document.cookie.split('; ').reduce(function (acc, pair) {
+        var parts = pair.split('=');
+        return parts[0] === 'theme' ? parts[1] : acc;
+      }, 'default');
+    }
+
+    function setTheme(theme) {
+      document.cookie = 'theme=' + theme + '; path=/; max-age=31536000; SameSite=Lax';
+      var link = document.getElementById('theme-stylesheet');
+      var base = link.href.replace(/[^/]+\.css$/, '');
+      link.href = base + (cssMap[theme] || 'style.css');
+    }
+
+    function openThemeDialog() {
+      var dialog = document.getElementById('theme-dialog');
+      var backdrop = document.getElementById('theme-backdrop');
+      dialog.querySelectorAll('button[data-theme]').forEach(function (btn) {
+        btn.classList.toggle('active', btn.dataset.theme === getTheme());
+      });
+      backdrop.classList.add('open');
+      dialog.showModal ? dialog.showModal() : dialog.setAttribute('open', '');
+    }
+
+    function closeThemeDialog() {
+      var dialog = document.getElementById('theme-dialog');
+      var backdrop = document.getElementById('theme-backdrop');
+      backdrop.classList.remove('open');
+      dialog.close ? dialog.close() : dialog.removeAttribute('open');
+    }
+
+    function pickTheme(theme) {
+      setTheme(theme);
+      closeThemeDialog();
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeThemeDialog();
+    });
+  </script>
+</body>
+
+</html>
