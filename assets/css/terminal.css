@@ -460,6 +460,21 @@ h2, h3 {
 /* ══════════════════════════════════════
    PROSE (article body)
    ══════════════════════════════════════ */
+/* ── Article hero image ── */
+.article-hero {
+  margin-bottom: 40px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0, 255, 65, 0.15);
+}
+.article-hero img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+
 .prose {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -570,6 +585,69 @@ h2, h3 {
   color: var(--accent);
   font-weight: normal;
   letter-spacing: 0.06em;
+}
+
+/* ─── Recipe: ingredients card ─── */
+.prose ul {
+  list-style: none;
+  padding: 14px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  margin-bottom: 20px;
+}
+.prose ul li {
+  margin-bottom: 8px;
+  padding-left: 22px;
+  position: relative;
+  color: var(--muted);
+}
+.prose ul li::before {
+  content: ">";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--dim);
+  font-size: 0.9em;
+}
+.prose ul li:last-child { margin-bottom: 0; }
+
+/* ─── Recipe: numbered instruction steps ─── */
+.prose { counter-reset: recipe-step; }
+.prose ol {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+.prose ol li {
+  counter-increment: recipe-step;
+  position: relative;
+  padding: 2px 0 18px 52px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  min-height: 36px;
+  color: var(--muted);
+}
+.prose ol li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+.prose ol li::before {
+  content: counter(recipe-step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: var(--glow-dim);
 }
 
 /* ══════════════════════════════════════

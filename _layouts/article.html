@@ -13,6 +13,12 @@ layout: default
       <p class="article-meta">Dean Abraham &nbsp;·&nbsp; {{ page.tag }}</p>
     </div>
 
+    {% if page.image %}
+    <div class="article-hero">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
+
     <article class="prose">
       {{ content }}
     </article>
