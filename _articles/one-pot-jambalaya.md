@@ -5,7 +5,7 @@ description: "Easy one-pot jambalaya with chicken, andouille sausage, shrimp, an
 order: 22
 ---
 
-![One Pot Jambalaya](/assets/images/one-pot-jambalaya.png)
+![One Pot Jambalaya](../assets/images/one-pot-jambalaya.png)
 
 ## Ingredients
 
