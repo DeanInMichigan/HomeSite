@@ -12,7 +12,7 @@ Easy one-pot jambalaya with chicken, andouille sausage, shrimp, and rice in a Ca
 ## Ingredients
 
 - Olive oil
-- Cajun seasoning
+- [Cajun seasoning](/HomeSite/articles/emerils-essence)
 - 1 medium onion, chopped
 - Bell peppers, chopped
 - 2 chicken breasts
