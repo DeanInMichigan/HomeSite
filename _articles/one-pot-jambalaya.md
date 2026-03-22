@@ -5,6 +5,8 @@ description: "Easy one-pot jambalaya with chicken, andouille sausage, shrimp, an
 order: 22
 ---
 
+Easy one-pot jambalaya with chicken, andouille sausage, shrimp, and rice in a Cajun-spiced tomato broth.
+
 ![One Pot Jambalaya](/HomeSite/assets/images/one-pot-jambalaya.png)
 
 ## Ingredients
